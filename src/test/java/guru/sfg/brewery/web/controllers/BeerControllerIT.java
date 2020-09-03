@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest
 public class BeerControllerIT extends BaseIT {
 
+
     @Test
     public void initCreationFormWithSpring() throws Exception {
 
