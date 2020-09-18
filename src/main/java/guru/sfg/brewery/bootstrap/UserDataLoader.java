@@ -32,7 +32,7 @@ public class UserDataLoader implements CommandLineRunner {
                 .username("spring")
                 .password(passwordEncoder.encode("guru"))
                 .authority(
-                        authorityRepository.findByRole("ADMIN").get()
+                        authorityRepository.findByRole("ROLE_ADMIN").get()
                 )
                 .build();
 
@@ -41,7 +41,7 @@ public class UserDataLoader implements CommandLineRunner {
                 .username("user")
                 .password(passwordEncoder.encode("password"))
                 .authority(
-                        authorityRepository.findByRole("USER").get()
+                        authorityRepository.findByRole("ROLE_USER").get()
                 )
                 .build();
 
@@ -50,7 +50,7 @@ public class UserDataLoader implements CommandLineRunner {
                 .username("scott")
                 .password(passwordEncoder.encode("tiger"))
                 .authority(
-                        authorityRepository.findByRole("CUSTOMER").get()
+                        authorityRepository.findByRole("ROLE_CUSTOMER").get()
                 )
                 .build();
 
@@ -64,9 +64,9 @@ public class UserDataLoader implements CommandLineRunner {
 
     private void loadAuthorities() {
 
-        Authority admin = Authority.builder().role("ADMIN").build();
-        Authority user = Authority.builder().role("USER").build();
-        Authority customer = Authority.builder().role("CUSTOMER").build();
+        Authority admin = Authority.builder().role("ROLE_ADMIN").build();
+        Authority user = Authority.builder().role("ROLE_USER").build();
+        Authority customer = Authority.builder().role("ROLE_CUSTOMER").build();
 
         authorityRepository.save(admin);
         authorityRepository.save(user);
