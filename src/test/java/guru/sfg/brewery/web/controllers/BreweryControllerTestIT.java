@@ -38,7 +38,7 @@ class BreweryControllerTestIT extends BaseIT{
 
         mockMvc.perform(get("/brewery/breweries")
                 .with(httpBasic("spring","guru")))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is2xxSuccessful());
     }
     @Test
     void showBreweriesUserRole() throws Exception {
@@ -52,7 +52,7 @@ class BreweryControllerTestIT extends BaseIT{
 
         mockMvc.perform(get("/brewery/api/v1/breweries")
                 .with(httpBasic("spring","guru")))
-                .andExpect(status().isForbidden());
+                .andExpect(status().is2xxSuccessful());
     }
     @Test
     void showBreweriesRestUserRole() throws Exception {
