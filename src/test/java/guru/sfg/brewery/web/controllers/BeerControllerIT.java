@@ -26,12 +26,11 @@ public class BeerControllerIT extends BaseIT {
     class InitNewForm {
 
 
-        @ParameterizedTest(name = "#{index} with [{arguments}]")
-        @MethodSource("guru.sfg.brewery.web.controllers.BeerControllerIT#getStreamAllUsers")
-        void initCreationFormAuth(String usr, String pwd) throws Exception {
+        @Test
+        void initCreationFormAuth() throws Exception {
 
             mockMvc.perform(get("/beers/new")
-                    .with(httpBasic(usr, pwd)))
+                    .with(httpBasic("spring", "guru")))
                     .andExpect(status().isOk())
                     .andExpect(view().name("beers/createBeer"))
                     .andExpect(model().attributeExists("beer"));
